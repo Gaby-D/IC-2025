@@ -29,17 +29,17 @@ def perceptron_simple(datos_trn, datos_tst, epocas, factor_aprendizaje, error_to
         aciertos = 0
         for i in range(len(x_train)): # Por cada patron
             y = np.sign(act_sigmoide(w @ x_train[i])) # y(n) = sigm(<w(n); x(n)>)
-            if y == y_train[i]:
-                aciertos += 1
-            error_local = (y_train[i] - y)**2 # Mejor opcion cuadratico vs absoluto
-            error_epoca += error_local
             w += (0.5*factor_aprendizaje) * (y_train[i] - y) * x_train[i] # w(n + 1) = w(n) + alpha/2 * [yd(n) - y(n)] * x(n)
+
+        # Ahora calculo errores fuera del for
+        y_pred = np.sign(act_sigmoide(x_train @ w))
+        errores = (y_train - y_pred) ** 2
+        error_epoca = np.mean(errores)
+        aciertos = np.sum(y_pred == y_train)
 
         # Graficar patrones y linea de separacion
         graficar(x_train, w, modo)
 
-        # Calcular promedio error cuadratico medio de la época
-        error_epoca = error_epoca / len(x_train)
         print(f"Error de la época {contador_epocas}: {error_epoca}")
         print(f"Aciertos de la época {contador_epocas}: {aciertos}")
         contador_epocas += 1
