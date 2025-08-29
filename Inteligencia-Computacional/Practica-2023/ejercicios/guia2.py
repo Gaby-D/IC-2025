@@ -9,8 +9,8 @@ def guia2_ejer1():
     # arch_name_trn = abspath('data/Guia1/XOR_trn.csv')
     # arch_name_tst = abspath('data/Guia1/XOR_tst.csv')
     # --- Datos ejer 2 ---
-    arch_name_trn = abspath('data/Guia2/concent_trn.csv')
-    arch_name_tst = abspath('data/Guia2/concent_tst.csv')
+    arch_name_trn = abspath('D:\Cosas de la facu\Inteligencia Computacional\Inteligencia-2025\IC-2025\Inteligencia-Computacional\Practica-2023\data\Guia2\concent_trn.csv')
+    arch_name_tst = abspath('D:\Cosas de la facu\Inteligencia Computacional\Inteligencia-2025\IC-2025\Inteligencia-Computacional\Practica-2023\data\Guia2\concent_tst.csv')
 
     num_max_epox = 1500
     tolerancia = 0.05
@@ -22,7 +22,7 @@ def guia2_ejer1():
     _, num_inputs = x.shape
 
     
-    mlp = MultiLayerPreceptron(num_inputs, [5,1], 0.005)
+    mlp = MultiLayerPreceptron(num_inputs, [5,2], 0.005)
     # mlp = MultiLayerPreceptron(num_inputs, [2,1], 0.10)
 
     epoc = 0
